@@ -36,14 +36,14 @@ class Command(BaseCommand):
 
             # 각 item의 유종구분, 평균가격, 날짜 데이터 모델에 적재
             for item in items:
-                oil_category = item.find('oilCtg').text
+                oil_type = item.find('oilCtg').text
                 date = item.find('basDt').text
                 avg_price = float(item.find('wtAvgPrcCptn').text)
 
                 # 모델에 데이터 적재
                 oil_price = OilPrice(
                     date=datetime.strptime(date, '%Y%m%d'),
-                    oil_category=oil_category,
+                    oil_type=oil_type,
                     avg_price=avg_price
                 )
                 oil_price.save()

@@ -10,9 +10,11 @@ class Command(BaseCommand):
         # for data in all_oil_data:
         #     print(f"Oil Category: {data.oil_category}, Date: {data.date}, Average Price: {data.avg_price}")
         
-        all_gold_data = GoldPrice.objects.all()
-        for data in all_gold_data:
-            print(f"gold Category: {data.gold_type}, Date: {data.date}, Closing Price: {data.closing_price}")
+
+        # all_gold_data = GoldPrice.objects.all()
+        # for data in all_gold_data:
+        #     print(f"gold Category: {data.gold_type}, Date: {data.date}, Closing Price: {data.closing_price}")
+        GoldPrice.objects.all().delete()
 
         # all_exchange_data = ExchangeRate.objects.all()
         # for data in all_exchange_data:
