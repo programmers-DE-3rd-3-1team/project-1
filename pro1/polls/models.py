@@ -4,7 +4,7 @@ from django.db import models
 class ExchangeRate(models.Model):
     type = models.CharField(max_length=10, default='exchange_rate')
     rate = models.FloatField()
-    date = models.DateTimeField()
+    date = models.DateField()
 
     def __str__(self):
         return f'{self.date} {self.cur_unit} : {self.deal_bas_r}'
