@@ -23,7 +23,7 @@ for i in range(len(data)):
     b = a.split(' ')
     date.append(b[0])
     
-print(data)
+print(data[:10])
 
 # 그래프 그리는 코드
 # plt.figure(figsize=(8, 3))
