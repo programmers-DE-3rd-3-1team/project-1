@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from polls.models import ExchangeRate
 from datetime import datetime, timedelta
 from django.utils import timezone
+import csv
 import pytz
 import requests
 import json
@@ -10,6 +11,7 @@ class Command(BaseCommand):
     help = 'Collect exchange rate data from API'
 
     def handle(self, *args, **kwargs):
+        """
         URL = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
         API_KEY = 'f8w4rCzj8xk38bdsBlSOi1EWpoWSJVWP'
         # 60일간의 날짜 생성
@@ -34,4 +36,22 @@ class Command(BaseCommand):
                     new_item['search_date'] = timezone.make_aware(naive_datetime, timezone=my_timezone)
                     exchange_rate = ExchangeRate(**new_item)
                     exchange_rate.save()
+                    """
+        # 파일 열고 데이터 읽어오기
+        file_path = 'csv/exchange_rate.csv'
+        with open(file_path, 'r', encoding='utf-8') as f:
+            next(f) # 첫 번째 라인 넘기기
+            rows = csv.reader(f)
+
+            # 라인별로 날짜, 종가 저장하기
+            for line in rows:
+                date = line[0]
+                rate = float(line[1].replace(',', ''))
+
+                exchange_rate = ExchangeRate(
+                    date = datetime.strptime(date, '%Y- %m- %d'),
+                    rate = rate
+                )
+                exchange_rate.save()
+        
         
