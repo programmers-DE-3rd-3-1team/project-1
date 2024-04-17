@@ -28,50 +28,60 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
-fetch('/api/data/')
+fetch('/polls/api/data/')
 .then(response => response.json())
 .then(data => {
-    const months = data.map(item => item.search_date);  // Extracting 'search_date' to use as labels
-    const earnings = data.map(item => item.deal_bas_r);  // Extracting 'deal_bas_r' to use as data points
+    const usdData = data.filter(item => item.cur_unit === "USD");
+    const months = data.map(item => item.search_date);
+    const earnings = data.map(item => item.deal_bas_r);
 
     var ctx = document.getElementById("myAreaChart").getContext('2d');
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: months,
+        labels: months.map(date => new Date(date).toLocaleDateString()),  // Format dates for readability
         datasets: [{
           label: "Earnings",
           lineTension: 0.3,
           backgroundColor: "rgba(78, 115, 223, 0.05)",
           borderColor: "rgba(78, 115, 223, 1)",
           pointRadius: 3,
+          pointBackgroundColor: "rgba(78, 115, 223, 1)",
+          pointBorderColor: "rgba(78, 115, 223, 1)",
+          pointHoverRadius: 3,
+          pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+          pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+          pointHitRadius: 10,
+          pointBorderWidth: 2,
           data: earnings,
-        }],
+        }]
       },
       options: {
         maintainAspectRatio: false,
+        legend: {
+            display: true
+        },
         scales: {
           xAxes: [{
-            gridLines: {
-              display: false,
-              drawBorder: false
+            type: 'time',
+            time: {
+                unit: 'day',
+                tooltipFormat: 'll'
             },
-            ticks: {
-              maxTicksLimit: 7
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Date'
             }
           }],
           yAxes: [{
             ticks: {
-              callback: function(value, index, values) {
-                return '$' + value.toLocaleString();
-              }
-            },
-            gridLines: {
-              color: "rgb(234, 236, 244)",
-              zeroLineColor: "rgb(234, 236, 244)",
-              drawBorder: false
+                beginAtZero: true,
+                callback: function(value, index, values) {
+                  return '$' + value;
+                }
             }
-          }],
+          }]
         }
       }
     });
