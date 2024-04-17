@@ -5,4 +5,5 @@ app_name = 'boots'
 
 urlpatterns = [
     path('index/', views.index),
+    path('charts/', views.charts),
 ]
