@@ -7,7 +7,7 @@ import plotly.express as px
 con = sqlite3.connect("db.sqlite3")
 Cur = con.cursor()
 
-Cur.execute("select * from polls_exchangerate where cur_unit = 'USD' order by 4;") # 달러 4번째 컬럼이 날짜
+Cur.execute("select * from polls_exchangerate order by 4;") # 달러 4번째 컬럼이 날짜
 
 data = Cur.fetchall()
 con.close()
@@ -22,7 +22,7 @@ for i in range(len(data)):
     # 날짜 저장
     USD_date.append(data[i][3])
     
-print(data[:10])
+# print(data[:10])
 
 
 
