@@ -1,8 +1,7 @@
 from django.urls import path
-from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    # path('',views.index, name='index') ,
-    path('index/', views.index)
+    path('api/data/', views.get_data, name='api-data'),
+    path('index/', views.index),
 ]
