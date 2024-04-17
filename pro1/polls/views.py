@@ -8,4 +8,4 @@ def get_data(request):
 
 def index(request):
     items = ExchangeRate.objects.all()
-    return render(request, 'pages/index.html', {'items': items})
+    return render(request, 'index.html', {'items': items})
