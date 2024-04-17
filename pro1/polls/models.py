@@ -20,7 +20,7 @@ class OilPrice(models.Model):
 class GoldPrice(models.Model):
     type = models.CharField(max_length=100, default='Gold') 
     date = models.DateField()  
-    closing_price = models.DecimalField(max_digits=10, decimal_places=2)  
+    closing_price = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):
         return f'{self.date} {self.type} : {self.closing_price}'
