@@ -7,6 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from polls.models import NasdaqIndex
 from django.core.management.base import BaseCommand
 
+# 나오는 사트의 날짜를 수동으로 설정해줘야합니다.
 class Command(BaseCommand):
     help = 'Collect exchange rate data from API'
     def handle(self, *args, **kwargs):

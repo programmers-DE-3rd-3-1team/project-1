@@ -7,7 +7,7 @@ class ExchangeRate(models.Model):
     search_date = models.DateTimeField()
 
     def __str__(self):
-        return self.cur_unit
+        return f'{self.search_date} {self.cur_unit} : {self.deal_bas_r}'
 
 class OilPrice(models.Model):
     oil_type = models.CharField(max_length=100)
@@ -42,7 +42,8 @@ class WTIOilPrice(models.Model):
         return f'{self.date} {self.type} : {self.closing_price}'
 
 class NasdaqIndex(models.Model):
+    type = models.CharField(max_length=100, default='Nasdaq')
     date = models.DateField()
     index = models.FloatField()
     def __str__(self):
-        return str(self.date)
+        return f'{self.date} {self.type} : {self.index}'
