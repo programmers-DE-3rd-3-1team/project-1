@@ -21,3 +21,5 @@ class GoldPrice(models.Model):
 class NasdaqIndex(models.Model):
     date = models.DateField()
     index = models.FloatField()
+    def __str__(self):
+        return str(self.date)
