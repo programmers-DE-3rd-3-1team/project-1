@@ -18,3 +18,6 @@ class GoldPrice(models.Model):
     gold_type = models.CharField(max_length=100)  # 금 종류
     date = models.DateField()  # 날짜
     closing_price = models.DecimalField(max_digits=10, decimal_places=2)  # 종가
+class NasdaqIndex(models.Model):
+    date = models.DateField()
+    index = models.FloatField()
