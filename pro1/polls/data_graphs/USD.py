@@ -1,5 +1,4 @@
 import sqlite3
-from matplotlib import pyplot as plt
 import pandas as pd
 import plotly.express as px
 
@@ -46,3 +45,6 @@ fig.update_layout(
 )
 
 fig.write_html("Daily_USD.html")
+
+
+
