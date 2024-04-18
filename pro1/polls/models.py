@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 class ExchangeRate(models.Model):
-    cur_unit = models.CharField(max_length=10)
-    deal_bas_r = models.FloatField()
-    search_date = models.DateTimeField()
+    type = models.CharField(max_length=10, default='exchange_rate')
+    rate = models.FloatField()
+    date = models.DateField()
 
     def __str__(self):
-        return f'{self.search_date} {self.cur_unit} : {self.deal_bas_r}'
+        return f'{self.date} {self.cur_unit} : {self.deal_bas_r}'
 
 class OilPrice(models.Model):
     oil_type = models.CharField(max_length=100)
