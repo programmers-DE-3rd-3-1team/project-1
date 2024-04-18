@@ -44,6 +44,6 @@ class WTIOilPrice(models.Model):
 class NasdaqIndex(models.Model):
     type = models.CharField(max_length=100, default='Nasdaq')
     date = models.DateField()
-    index = models.FloatField()
+    index_price = models.FloatField()
     def __str__(self):
         return f'{self.date} {self.type} : {self.index}'
