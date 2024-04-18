@@ -40,7 +40,7 @@ fig = px.line(Daily_USD,
 ## 레이아웃 업데이트
 fig.update_layout(
     plot_bgcolor='white',  # 배경색을 하얀색으로 설정
-    title_font_size=24,    # 제목의 폰트 크기 설정
+    # title_font_size=24,    # 제목의 폰트 크기 설정
     xaxis=dict(title='Date', showgrid=True),  # x축 레이블 설정
     yaxis=dict(title='Price', showgrid=False),
 )
