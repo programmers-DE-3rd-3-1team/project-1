@@ -44,6 +44,7 @@ class WTIOilPrice(models.Model):
 class NasdaqIndex(models.Model):
     type = models.CharField(max_length=100, default='Nasdaq')
     date = models.DateField()
-    index = models.FloatField()
+    # index로 설정되어있었는데 index는 예약어라서 변경 >> index_price
+    index_price = models.FloatField()
     def __str__(self):
         return f'{self.date} {self.type} : {self.index}'
