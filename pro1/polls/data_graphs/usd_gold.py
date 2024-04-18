@@ -6,7 +6,7 @@ import plotly.express as px
 con = sqlite3.connect("db.sqlite3")
 Cur = con.cursor()
 
-Cur.execute("select a.rate, a.date from polls_exchangerate a inner join polls_goldprice b on a.date = b.date order by a.date;") # 달러 4번째 컬럼이 날짜
+Cur.execute("select a.rate, a.date from polls_exchangerate a inner join polls_goldprice b on a.date = b.date order by a.date;") 
 
 data = Cur.fetchall()
 con.close()
@@ -27,7 +27,7 @@ for i in range(len(data)):
 con = sqlite3.connect("db.sqlite3")
 Cur = con.cursor()
 
-Cur.execute("select a.closing_price, a.date from polls_goldprice a inner join polls_exchangerate b on a.date = b.date order by a.date;") # 금값 2번째 컬럼이 날짜
+Cur.execute("select a.closing_price, a.date from polls_goldprice a inner join polls_exchangerate b on a.date = b.date order by a.date;") 
 
 data = Cur.fetchall()
 con.close()

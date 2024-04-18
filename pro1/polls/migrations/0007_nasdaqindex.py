@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(default='Nasdaq', max_length=100)),
                 ('date', models.DateField()),
-                ('index', models.FloatField()),
+                ('index_price', models.FloatField()),
             ],
         ),
     ]

@@ -52,15 +52,15 @@ usd_kospi = pd.DataFrame({'usd_data': USD_price
 # 상관계수 출력
 #print(usd_gold.corr(method='pearson'))
 
-fig = px.scatter(usd_kospi, x='usd_data', y='kospi_data', title='USD-KOSPI', size_max=1)
+fig = px.scatter(usd_kospi, x='kospi_data', y='usd_data', title='KOSPI-USD', size_max=1)
 
 # ImportError: Plotly express requires pandas to be installed. >> 오류 발생 시 pip install pandas
 # 레이아웃 업데이트
 fig.update_layout(
     plot_bgcolor='white',  # 배경색을 하얀색으로 설정
     # title_font_size=24,    # 제목의 폰트 크기 설정
-    xaxis=dict(title='USD', showgrid=True),  # x축 레이블 설정
-    yaxis=dict(title='KOSPI', showgrid=False),
+    xaxis=dict(title='KOSPI', showgrid=True),  # x축 레이블 설정
+    yaxis=dict(title='USD', showgrid=False),
 )
 
-fig.write_html("usd_kospi.html")
+fig.write_html("kospi_usd.html")
