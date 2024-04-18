@@ -20,7 +20,7 @@ con.close()
 gold_kospi = pd.DataFrame(data, columns=['kospi_price', 'date', 'gold_price'])
 
 # 상관계수 출력 (전체 기간)
-<<<<<<<< HEAD:pro1/polls/data_graphs/tests/test_line.py
+
 # print(gold_kospi[['gold_price', 'kospi_price']].corr(method='pearson'))
 # 시간에 따른 상관계수 계산 (롤링 윈도우 사용)
 window_size = 60  # 예: 30일 윈도우
@@ -34,7 +34,7 @@ print(rolling_corr[:61])
 # fig.update_layout(plot_bgcolor='white')
 # fig.show()
 # fig.write_html("gold_kospi_scatter.html")
-========
+
 print(gold_kospi[['kospi_price', 'gold_price']].corr(method='pearson'))
 
 # 시간에 따른 상관계수 계산 (롤링 윈도우 사용)
@@ -48,4 +48,3 @@ fig.update_yaxes(title_text='Rolling Correlation Coefficient')
 fig.update_layout(plot_bgcolor='white')
 
 fig.write_html("kospi_gold.html")
->>>>>>>> main:pro1/polls/data_graphs/kospi_gold.py
