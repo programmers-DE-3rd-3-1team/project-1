@@ -73,7 +73,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pro1.wsgi.application'
 
-
+ALLOWED_HOSTS = [
+    ".ap-northeast-2.compute.amazonaws.com"
+    "ec2-43-201-98-157.ap-northeast-2.compute.amazonaws.com"
+]
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
